@@ -4,7 +4,8 @@
   "description": "my first blog",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --harmony test"
+    "test": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
+    "start": "pm2 start index.js --node-args='--harmony' --name 'myblog'"
   },
   "repository": {
     "type": "git",
@@ -33,5 +34,8 @@
     "sha1": "1.1.1",
     "supertest": "2.0.1",
     "winston": "2.3.0"
+  },
+  "devDependencies": {
+    "istanbul": "0.4.5"
   }
 }

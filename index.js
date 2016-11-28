@@ -87,8 +87,12 @@ app.use(function (err, req, res, next) {
 });
 
 //监听端口，启动程序
-app.listen(config.port, function () {
-    console.log('${pkg.name} listening on port ${config.port}');
-});
+if (module.parent){
+    module.exports = app;
+}else {
+    app.listen(config.port, function () {
+        console.log('${pkg.name} listening on port ${config.port}');
+    });
+}
 
 
